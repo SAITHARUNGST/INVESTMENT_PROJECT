@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Investment Company Website</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <style>
+        
+       .hero {
+            background-size: cover;
+            height: 60vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: rgb(0, 0, 0);
+            padding: 50px; /* Added padding for better spacing */
+        }
+
+        .hero h1 {
+            font-size: 3em;
+            font-weight: 800;
+            text-align: center; /* Centered text for better visibility */
+            line-height: 1.2; /* Increased line-spacing for readability */
+        }
+
+        .hero p {
+            font-size: 1.5em;
+            font-weight: 700;
+            text-align: center;
+            line-height: 1.5; /* Increased line-spacing for readability */
+            margin-top: 20px; /* Added margin for better separation */
+        }
+
+        .highlight {
+            background-color: #e0f2f1; /* Lighter green background for highlight section */
+            padding: 20px;
+            border-radius: 10px; /* Rounded corners for a softer look */
+            margin-bottom: 50px; /* Added spacing between sections */
+        }
+
+        .service-card {
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+            transition: 0.3s;
+            padding: 20px;
+            margin: 10px;
+            border-radius: 5px;
+            background-color: #fff; /* White background for cards */
+        }
+
+        .service-card:hover {
+            box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+        }
+
+        .btn-primary {
+            background-color: #2e8b57; /* Green color for buttons */
+            border-color: #2e8b57;
+            color: white;
+            padding: 10px 20px; /* Increased button padding */
+        }
+
+        .btn-primary:hover {
+            background-color: #28774e; /* Darker green on hover */
+            border-color: #28774e;
+        }
+
+        .text {
+            text-align: center; /* Centered text for better alignment */
+        }
+
+        /* Added some responsiveness for better user experience on different devices */
+        @media (max-width: 768px) {
+            .col-md-4 {
+                flex: 0 0 100%;
+                max-width: 100%;
+            }
+
+            .hero h1 {
+                font-size: 2.5em; /* Adjusted font size for smaller screens */
+            }
+
+            .hero p {
+                font-size: 1.3em; /* Adjusted font size for smaller screens */
+            }
+        }
+
+        /* Added styles for spacing and icons in various sections */
+        section {
+            padding: 50px 0; /* Added padding for spacing between sections */
+        }
+
+        .about .container p {
+            line-height: 1.5; /* Increased line-spacing for readability */
+            margin-bottom: 20px; /* Added spacing between paragraphs */
+        }
+
+        .about .container ul {
+            margin-bottom: 30px; /* Added spacing after list */
+        }
+
+        .services .row {
+            justify-content: center; /* Center the service cards horizontally */
+        }
+
+        .services .service-card {
+            margin: 15px; /* Adjusted margin for better spacing between cards */
+        }
+
+        .contact form {
+            display: flex; /* Arrange form elements horizontally */
+            flex-wrap: wrap; /* Allow elements to wrap on smaller screens */
+            justify-content: space-between; /* Distribute elements evenly */
+            margin-bottom: 20px; /* Added spacing after form */
+        }
+
+        .contact form .mb-3 {
+            width: 48%; /* Set individual form element width */
+            margin-bottom: 15px; /* Reduced margin for tighter spacing */
+        }
+
+        .contact form textarea {
+            min-height: 100px; /* Set minimum height for textarea */
+        }
+
+        /* Added styles for icons (replace placeholders with actual icon classes) */
+        .services .service-card h3 {
+            margin-bottom: 10px; /* Added spacing after heading */
+        }
+
+        .services .service-card ul li {
+            display: flex; /* Arrange list items with icons */
+            align-items: center; /* Align icon and text vertically */
+            margin-bottom: 5px; /* Added spacing between list items */
+        }
+
+        .highlight {
+        background-color: #e0f2f1; /* Lighter green background for highlight section */
+        padding: 20px;
+        border-radius: 10px; /* Rounded corners for a softer look */
+        margin-bottom: 50px; /* Added spacing between sections */
+
+    }
+    .hi{
+        background-color: #e0f2f1;
+    }
+
+    .grid-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Adjust as needed for desired layout and responsiveness */
+        gap: 20px; /* Spacing between grid items */
+        text-align: center; /* Center content within grid items */
+    }
+
+    .grid-item {
+        padding: 20px;
+        border-radius: 5px;
+        background-color: #fff; /* White background for grid items */
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+        transition: 0.3s;
+    }
+
+    .grid-item:hover {
+        box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2); /* Increased shadow on hover */
+    }
+
+    .grid-item i {
+        margin-bottom: 10px; /* Spacing between icon and heading */
+    }
+
+    .grid-item h3 {
+        font-size: 1.8em;
+        margin-bottom: 10px; /* Spacing between heading and text */
+    }
+
+    /* Responsive adjustments for smaller screens */
+    @media (max-width: 768px) {
+        .grid-container {
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        }
+    }
+
+        .services .service-card ul li i {
+            margin-right: 10px; /* Added spacing between icon and text */
+            font-size: 18px; /* Adjusted icon size */
+            color: #2e8b57; /* Green color for icons */
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top" style="background-color: #e0f2f1">
+        <div class="container-fluid">
+            <a class="navbar-brand" >SS Investments</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#careers">Careers</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#services">Services</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#contact">Contact</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    
+        <section class="hero">
+            <div class="text">
+                <h1>Empowering Your Financial Future</h1>
+                <p>Invest with confidence and achieve your financial goals.</p>
+            </div>
+        </section>
+    <div class="hi">
+        <section class="highlight">
+            <div class="container">
+                <h2 style="text-align: center;">Investment Highlights</h2>
+                <div class="grid-container">
+                    <div class="grid-item">
+                        <i class="fas fa-chart-line" style="color: #2e8b57; font-size: 3em; margin-bottom: 10px;"></i>
+                        <h3>Proven Track Record</h3>
+                        <p>More than 300+ clients</p>
+                    </div>
+                    <div class="grid-item">
+                        <i class="fas fa-lock" style="color: #2e8b57; font-size: 3em; margin-bottom: 10px;"></i>
+                        <h3>Secure Investments</h3>
+                        <p>Blockchain security, at most secure services in the world</p>
+                    </div>
+                    <div class="grid-item">
+                        <i class="fas fa-users" style="color: #2e8b57; font-size: 3em; margin-bottom: 10px;"></i>
+                        <h3>Experienced Team</h3>
+                        <p>More than 20+ experience, we have the empowered, intelligent and talented minds</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    
+        <section id="about">
+            <div class="container">
+                <h2>About Us</h2>
+                <p>We are a leading investment company that provides our clients with the tools and resources they need to achieve their financial goals. With our expert advice and guidance, you can be confident that your money is in good hands.</p>
+                <p>We offer a wide range of investment products and services, including:</p>
+                <ul>
+                    <li>Stocks</li>
+                    <li>Bonds</li>
+                    <li>Mutual funds</li>
+                    <li>Retirement plans</li>
+                    <li>IRAs</li>
+                </ul>
+                <p>We also offer a variety of educational resources to help you learn more about investing and make informed decisions about your financial future.</p>
+                <p>Contact us today to learn more about our services and how we can help you achieve your financial goals.</p>
+    
+                <h3>Meet the Team</h3>
+                <div class="row">
+                    <div class="col-md-4">
+                        <img src="IMG_0478.JPG" alt="Team member 1" class="img-thumbnail">
+                        <h4 style="text-align: center;">Sai Tharun</h4>
+                        <p style="text-align: center;">CEO & Founder</p>
+                    </div>
+                    <div class="col-md-4">
+                        <img src="PHOTO-2024-03-06-21-13-09.jpg" alt="Team member 2" class="img-thumbnail" style="height: 325px;">
+                        <h4 style="padding-left: 120px;">Sanjai</h4>
+                        <p style="padding-left: 80px;">Investment Executive</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    
+        <section id="careers">
+            <div class="container">
+                <h2>Careers</h2>
+                <p>Join our team and be part of our success story!</p>
+ 
+                <ul>
+                        <a href="#" class="btn btn-primary">Apply Now</a>
+                </ul>
+    
+            </div>
+        </section>
+    
+        <section id="services">
+            <div class="container">
+                <h2>Our Services</h2>
+                <p>We offer a wide range of investment services to meet your individual needs.</p>
+
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="service-card">
+                            <h3>Wealth Management</h3>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas aliquam, risus eget blandit interdum.</p>
+                            <ul>
+                                <li>Goal setting</li>
+                                <li>Asset allocation</li>
+                                <li>Portfolio management</li>
+                            </ul>
+                            <a href="#" class="btn btn-primary">Learn More</a>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="service-card">
+                            <h3>Retirement Planning</h3>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas aliquam, risus eget blandit interdum.</p>
+                            <ul>
+                                <li>Retirement income planning</li>
+                                <li>Risk management</li>
+                                <li>Estate planning</li>
+                            </ul>
+                            <a href="#" class="btn btn-primary">Learn More</a>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="service-card">
+                            <h3>Investment Education</h3>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas aliquam, risus eget blandit interdum.</p>
+                            <ul>
+                                <li>Workshops and seminars</li>
+                                <li>Online resources</li>
+                                <li>One-on-one consultations</li>
+                            </ul>
+                            <a href="#" class="btn btn-primary">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    
+        <section id="contact">
+            <div class="container">
+                <h2>Contact Us</h2>
+                <p>Get in touch with us to discuss your investment goals.</p>
+    
+                <form>
+                    <div class="mb-3">
+                        <label for="name" class="form-label">Your Name</label>
+                        <input type="text" class="form-control" id="name" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Email address</label>
+                        <input type="email" class="form-control" id="email" aria-describedby="emailHelp" required>
+                        <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="message" class="form-label">Message</label>
+                        <textarea class="form-control" id="message" rows="3" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Send Message</button>
+                </form>
+            </div>
+        </section>
+    
+        <footer class="text-center py-3">
+            <p>&copy; 2024 GSTSANJAI. All rights reserved.</p>
+        </footer>
+    
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jC8C6OIWsU8hIlVUMSEjkzGYmPXq" crossorigin="anonymous"></script>
+    </body>
+    
+    </html>
+    
+    
